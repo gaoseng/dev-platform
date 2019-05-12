@@ -1,3 +1,4 @@
+import './main.scss';
 console.log('hello wor1');
 // import '@babel/polyfill'
 let arr = [1,3,4];
@@ -22,3 +23,6 @@ class Test {
     }
   }
   console.log(new Test);
+
+  const body = document.getElementsByTagName('body')[0];
+  body.textContent = 'hello world'

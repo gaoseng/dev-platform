@@ -9,3 +9,4 @@ yarn run build | yarn build
 
 #需掌握的只是
 1.webpack
+2.scss 
