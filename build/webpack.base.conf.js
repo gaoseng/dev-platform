@@ -1,7 +1,8 @@
-
+'use strict';
 const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 
 function resolve(dir) {
@@ -10,8 +11,16 @@ function resolve(dir) {
 
 
 module.exports = {
-    context: path.resolve(__dirname , '../'),
     
+    context: path.resolve(__dirname , '../'),
+    resolve: {
+        extensions: ['.js', '.vue', '.json', '.less'],
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js',
+            '@': resolve('src'),
+        }
+    },
+
     entry: ["@babel/polyfill", "./src/main.js"],
     output: {
         path: path.resolve(__dirname, '../dist'),
@@ -19,6 +28,11 @@ module.exports = {
     },
     module: {
         rules: [
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                
+            },
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
@@ -41,6 +55,7 @@ module.exports = {
             // both options are optional
             filename: "[name].css",
             chunkFilename: "[id].css"
-        })
+        }),
+        new VueLoaderPlugin()
     ]
 }

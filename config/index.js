@@ -10,7 +10,7 @@ module.exports = {
 
         },
         host: 'localhost',
-        port: 8080,
+        port: 3000,
         autoOpenBrowser: false,
         errorOvelay: true,   // 编译出错时，默认大概屏幕覆盖
         notifyOnErrors: true,

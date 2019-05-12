@@ -16,7 +16,8 @@
   "license": "ISC",
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
-    "@babel/runtime": "^7.4.4"
+    "@babel/runtime": "^7.4.4",
+    "vue": "^2.6.10"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
@@ -36,9 +37,12 @@
     "rimraf": "^2.6.3",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "vue-loader": "^15.7.0",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.10",
     "webpack": "^4.31.0",
     "webpack-cli": "^3.3.2",
-    "webpack-dev-server": "^3.3.1",
+    "webpack-dev-server": "^3.1.14",
     "webpack-merge": "^4.2.1"
   }
 }
