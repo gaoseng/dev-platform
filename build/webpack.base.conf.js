@@ -3,11 +3,22 @@ const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-
+const config = require('../config');
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir); 
 }
+
+const createLintingRule = () => ({
+    test: /\.(js|vue)$/,
+    loader: 'eslint-loader',
+    enforce: 'pre',
+    include: [resolve('src'), resolve('test')],
+    options: {
+      formatter: require('eslint-friendly-formatter'),
+      emitWarning: !config.dev.showEslintErrorsInOverlay
+    }
+  })
 
 
 module.exports = {
@@ -28,6 +39,7 @@ module.exports = {
     },
     module: {
         rules: [
+            ...(config.dev.useEslint ? [createLintingRule()] : []),
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',

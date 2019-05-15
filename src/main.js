@@ -1,11 +1,11 @@
-import Vue from 'vue';
-import App from './App';
+import Vue from 'vue'
+import App from './App'
 
-console.log('main');
+// eslint-disable-next-line no-new
 new Vue({
-    el: '#app',
-    // render: h => h(App),
-    // router,
-    components: { App },
-    template: '<App/>'
-  });
+  el: '#app',
+  // render: h => h(App),
+  // router,
+  components: { App },
+  template: '<App/>'
+})
