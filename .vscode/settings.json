@@ -1,0 +1,23 @@
+{
+    //eslint 代码自动检查相关配置
+ 
+    "eslint.enable": true,
+    "eslint.autoFixOnSave": true,
+    "eslint.run": "onType",
+    "eslint.options": {
+	    "extensions": [".js",".vue"]
+    },
+    "eslint.validate": [
+        "javascriptreact",
+        "vue",
+        "javascript", {
+            "language": "vue",
+            "autoFix": true
+        },
+        "html", {
+          "language": "html",
+          "autoFix": true
+        }
+  ],
+}
+
