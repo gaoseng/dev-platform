@@ -22,6 +22,7 @@ module.exports = {
   plugins: [
     'vue',
     'html',
+    'vuefix'
     // 'prettier' //统一代码
   ],
   // add your custom rules here
@@ -34,5 +35,6 @@ module.exports = {
     'eol-last': ['error', 'always'],
     'semi': ['error', 'never'],
     // "prettier/prettier": "error"
+    "vuefix/vuefix": [2, {"auto": true}]
   }
 }

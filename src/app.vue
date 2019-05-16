@@ -1,11 +1,11 @@
 <template>
-    <div>hello vue</div>
+  <div>hello vue</div>
 </template>
 
 <script>
 export default {
-  name: 'App'
-}
+  name: "app"
+};
 </script>
 
 <style lang='scss' scoped>
