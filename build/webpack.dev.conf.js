@@ -73,7 +73,7 @@ module.exports = new Promise((resolve, reject) => {
          devWebpackConfig.plugins.push(new FriendlyErrorsPlugin({
              compilationSuccessInfo: {
                 messages: [`Your application is running here: http://${devWebpackConfig.devServer.host}:${port}`],
-                notes: ['开发平台前端服务器已启动，按住ctrl并单击可访问 \r\n ']
+                notes: ['开发平台前端服务器已启动，按住ctrl并单击可访问']
              },
              onErrors: config.dev.notifyOnErrors
           ? utils.createNotifierCallback()
