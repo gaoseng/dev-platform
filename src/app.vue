@@ -1,12 +1,13 @@
 <template>
   <div id="app">
     <router-view />
+    123
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
-  name: "app"
+  name: "app",
 };
 </script>
 

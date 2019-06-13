@@ -10,37 +10,35 @@ function resolve(dir) {
     return path.join(__dirname, '..', dir); 
 }
 
-const createLintingRule = () => ({
-    test: /\.(js|vue)$/,
-    loader: 'eslint-loader',
-    enforce: 'pre',
-    include: [resolve('src'), resolve('test')],
-    options: {
-      formatter: require('eslint-friendly-formatter'),
-      emitWarning: !config.dev.showEslintErrorsInOverlay
-    }
-  })
+
 
 
 module.exports = {
     
     context: path.resolve(__dirname , '../'),
     resolve: {
-        extensions: ['.js', '.vue', '.json', '.less'],
+        extensions: ['.js', '.vue', '.json', '.less', '.ts'],
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
             '@': resolve('src'),
         }
     },
 
-    entry: ["@babel/polyfill", "./src/main.js"],
+    entry: ["@babel/polyfill", "./src/main.ts"],
     output: {
         path: path.resolve(__dirname, '../dist'),
         filename: 'bundle.js',
     },
     module: {
         rules: [
-            ...(config.dev.useEslint ? [createLintingRule()] : []),
+            {
+                test: /\.ts$/,
+                exclude: /node_modules|vue\/src/,
+                loader: "ts-loader",
+                options: {
+                  appendTsSuffixTo: [/\.vue$/]
+                }
+              },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
@@ -81,7 +79,8 @@ module.exports = {
                     // fallback to style-loader in development
                     process.env.NODE_ENV !== 'production' ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
                     "css-loader",
-                    "sass-loader"
+                    "sass-loader",
+                    "postcss-loader"
                 ]
             }
         ]

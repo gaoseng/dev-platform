@@ -1,16 +1,21 @@
 <template>
-    <div>
-        home
-        <router-link :to="{ name: 'login', params: { userId: 123 }}">User</router-link>
-    </div>
+  <div class="home">
+    <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
+    <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/> -->
+    test
+  </div>
 </template>
 
-<script>
-    export default {
-        name: 'homePage'
-    }
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+// import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+
+@Component({
+  components: {
+    // HelloWorld,
+  },
+  
+})
+export default class Home extends Vue {
+}
 </script>
-
-<style lang="scss" scoped>
-
-</style>

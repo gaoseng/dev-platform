@@ -3,19 +3,17 @@ import Router from 'vue-router';
 
 Vue.use(Router);
 
-const Login = () => import('../pages/login-page/login.page');
-const HomePage = () => import ('../pages/home-page/home.page');
 
 const constantRoutes = [
     {path: '/', redirect: 'home'},
     { 
         path: '/home', 
-        component: HomePage 
+        component: () => import ('../pages/home-page/home.page.vue') 
     },
     {
         path: '/login',
         name: 'login',
-         component: Login
+         component: () => import('../pages/login-page/login.page.vue')
     }
 ];
 
