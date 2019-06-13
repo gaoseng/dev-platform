@@ -66,7 +66,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    // browsers: ['Chrome'],
 
 
     // Continuous Integration mode
@@ -75,6 +75,8 @@ module.exports = function(config) {
 
     // Concurrency level
     // how many browser should be started simultaneous
-    restartOnFileChange: true
+    // restartOnFileChange: true,
+    // 并发级别（启动的浏览器数）
+    concurrency: 1
   })
 }
