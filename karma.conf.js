@@ -8,10 +8,11 @@ module.exports = function(config) {
     basePath: '',
 
     plugins: [
-      require('karma-jasmine'),
-      require('karma-chrome-launcher'),
-      require('karma-jasmine-html-reporter'),
-      require('karma-coverage-istanbul-reporter')
+      'karma-jasmine',
+      'karma-chrome-launcher',
+      'karma-jasmine-html-reporter',
+      'karma-coverage-istanbul-reporter',
+      'karma-babel-preprocessor'
     ],
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, '../coverage/dev-platform'),
@@ -38,6 +39,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'src/**/*.spec.js': ['babel'],
+      'test/**/*.spec.js ': ['babel']
     },
 
 
