@@ -20,7 +20,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
             },
@@ -30,7 +30,12 @@ module.exports = {
                     // fallback to style-loader in development
                     process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
                     "css-loader",
-                    "sass-loader"
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            javascriptEnabled: true,    // 处理antd按需加载问题
+                          }
+                    }
                 ]
             }
         ]
